@@ -21,7 +21,7 @@ The script generates initial conditions for the N-body system using the **Plumme
 The positions and velocities of particles are generated based on the Plummer density profile:
 
 $$
-\rho(r) = \frac{3M}{4\pi r_0^3} \left( 1 + \frac{r^2}{r_0^2} \right)^{-5/2}
+\rho(r) = \mathbf{a}_i\frac{3M}{4\pi r_0^3} \left( 1 + \frac{r^2}{r_0^2} \right)^{-5/2}
 $$
 
 Where:
@@ -39,14 +39,14 @@ $$
 The masses of particles are sampled based on user-defined IMF types:
 1. **Kroupa IMF**: A three-segment power-law distribution:
 
-   $$
-   P(m) \propto 
-   \begin{cases} 
-   m^{-1.8}, & 0.08 \leq m < 0.5 \\
-   m^{-2.7}, & 0.5 \leq m < 1.0 \\
-   m^{-2.3}, & 1.0 \leq m < 100 
-   \end{cases}
-   $$
+$$
+P(m) \propto 
+\begin{cases} 
+m^{-1.8}, & 0.08 \leq m < 0.5 \\
+m^{-2.7}, & 0.5 \leq m < 1.0 \\
+m^{-2.3}, & 1.0 \leq m < 100 
+\end{cases}
+$$
 
 2. **Single IMF**: All particles have the same mass, $m = 1.0$.
 3. **Even IMF**: Masses are uniformly distributed between $m = 0.08$ and $m = 10.0$.
