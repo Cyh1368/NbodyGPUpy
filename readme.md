@@ -19,13 +19,15 @@ The script generates initial conditions for the N-body system using the **Plumme
 
 #### Plummer Model
 The positions and velocities of particles are generated based on the Plummer density profile:
+
 $$
 \rho(r) = \frac{3M}{4\pi r_0^3} \left( 1 + \frac{r^2}{r_0^2} \right)^{-5/2}
 $$
+
 Where:
-- \( M \) is the total mass,
-- \( r_0 \) is the scale length,
-- \( r \) is the radial distance from the center.
+- $ M $ is the total mass,
+- $ r_0 $ is the scale length,
+- $ r $ is the radial distance from the center.
 
 The escape velocity \( v_e \) for a particle at radius \( r \) is computed as:
 $$
