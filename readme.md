@@ -87,7 +87,7 @@ Where:
 ### 4. **Scalable Storage**
 To handle large-scale simulations efficiently, the script uses **memory-mapped files** to store particle positions, velocities, and energies without loading all data into RAM. For example, the position data is saved as:
 
-$$ \text{pos_save}[i, :, t] = r_i(t) $$
+$$ \text{pos-save}[i, :, t] = r_i(t) $$
 
 Where $r_i(t)$ is the position of particle $i$ at time $t$.
 
