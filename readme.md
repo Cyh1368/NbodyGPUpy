@@ -25,11 +25,12 @@ $$
 $$
 
 Where:
-- $ M $ is the total mass,
-- $ r_0 $ is the scale length,
-- $ r $ is the radial distance from the center.
+- $M$ is the total mass,
+- $r_0$ is the scale length,
+- $r$ is the radial distance from the center.
 
-The escape velocity \( v_e \) for a particle at radius \( r \) is computed as:
+The escape velocity $v_e$ for a particle at radial distance $r$ is computed as:
+
 $$
 v_e = \sqrt{2} \left(1 + r^2\right)^{-1/4}
 $$
@@ -37,6 +38,7 @@ $$
 #### Initial Mass Functions (IMFs)
 The masses of particles are sampled based on user-defined IMF types:
 1. **Kroupa IMF**: A three-segment power-law distribution:
+
    $$
    P(m) \propto 
    \begin{cases} 
@@ -45,8 +47,9 @@ The masses of particles are sampled based on user-defined IMF types:
    m^{-2.3}, & 1.0 \leq m < 100 
    \end{cases}
    $$
-2. **Single IMF**: All particles have the same mass, \( m = 1.0 \).
-3. **Even IMF**: Masses are uniformly distributed between \( m = 0.08 \) and \( m = 10.0 \).
+
+2. **Single IMF**: All particles have the same mass, $m = 1.0$.
+3. **Even IMF**: Masses are uniformly distributed between $m = 0.08$ and $m = 10.0$.
 
 ---
 
@@ -55,9 +58,11 @@ The script uses the **CuPy** library to offload computationally intensive tasks 
 
 #### Acceleration Calculation
 The gravitational acceleration \( \mathbf{a}_i \) for each particle is computed as:
+
 $$
 \mathbf{a}_i = -G \sum_{j \neq i} \frac{m_j (\mathbf{r}_j - \mathbf{r}_i)}{\left( |\mathbf{r}_j - \mathbf{r}_i|^2 + \epsilon^2 \right)^{3/2}}
 $$
+
 Where:
 - \( G \) is the gravitational constant,
 - \( \mathbf{r}_i \) and \( \mathbf{r}_j \) are positions of particles \( i \) and \( j \),
