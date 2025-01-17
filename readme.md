@@ -59,9 +59,7 @@ The script uses the **CuPy** library to offload computationally intensive tasks 
 #### Acceleration Calculation
 The gravitational acceleration $$\mathbf{a}_i$$ for each particle is computed as:
 
-$$
-\mathbf{a}_i = -G \sum_{j \neq i} \frac{m_j (\mathbf{r}_j - \mathbf{r}_i)}{\left( |\mathbf{r}_j - \mathbf{r}_i|^2 + \epsilon^2 \right)^{3/2}}
-$$
+$$\mathbf{a}_i = -G \sum_{j \neq i} \frac{m_j (\mathbf{r}_j - \mathbf{r}_i)}{\left( |\mathbf{r}_j - \mathbf{r}_i|^2 + \epsilon^2 \right)^{3/2}}$$
 
 Where:
 - $G$ is the gravitational constant,
@@ -89,9 +87,7 @@ Where:
 ### 4. **Scalable Storage**
 To handle large-scale simulations efficiently, the script uses **memory-mapped files** to store particle positions, velocities, and energies without loading all data into RAM. For example, the position data is saved as:
 
-$$
-\text{pos\_save}[i, :, t] = \mathbf{r}_i(t)
-$$
+$$\text{pos\_save}[i, :, t] = \mathbf{r}_i(t)$$
 
 Where $\mathbf{r}_i(t)$ is the position of particle $i$ at time $t$.
 
