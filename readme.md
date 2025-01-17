@@ -87,9 +87,9 @@ Where:
 ### 4. **Scalable Storage**
 To handle large-scale simulations efficiently, the script uses **memory-mapped files** to store particle positions, velocities, and energies without loading all data into RAM. For example, the position data is saved as:
 
-$$ \text{pos\_save}[i, :, t] = \mathbf{r}_i(t) $$
+$$ \text{pos\_save}[i, :, t] = r_i(t) $$
 
-Where $\mathbf{r}_i(t)$ is the position of particle $i$ at time $t$.
+Where $r_i(t)$ is the position of particle $i$ at time $t$.
 
 ---
 
@@ -101,7 +101,7 @@ KE = \frac{1}{2} \sum_{i=1}^N m_i v_i^2
 $$
 
 $$
-PE = -\frac{G}{2} \sum_{i \neq j} \frac{m_i m_j}{|\mathbf{r}_j - \mathbf{r}_i|}
+PE = -\frac{G}{2} \sum_{i \neq j} \frac{m_i m_j}{|r_j - r_i|}
 $$
 
 The total energy $E$ of the system is:
@@ -121,7 +121,7 @@ The script sends periodic updates about the simulation status to a REST API. Thi
 ---
 
 ### 7. **Scalable Position and Velocity Scaling**
-The positions $\mathbf{r}$ and velocities $\mathbf{v}$ are scaled to satisfy the virial theorem:
+The positions $r$ and velocities $v$ are scaled to satisfy the virial theorem:
 
 $$
 \frac{2 KE}{|PE|} = q_{\text{vir}}
@@ -130,11 +130,11 @@ $$
 Where $q_{\text{vir}}$ is the virial ratio. Scaling is performed as:
 
 $$
-\mathbf{v}_{\text{scaled}} = \mathbf{v} \sqrt{\frac{|q_{\text{vir}} \cdot PE|}{KE}}
+v_{\text{scaled}} = v \sqrt{\frac{|q_{\text{vir}} \cdot PE|}{KE}}
 $$
 
 $$
-\mathbf{r}_{\text{scaled}} = \mathbf{r} \cdot \beta
+r_{\text{scaled}} = r \cdot \beta
 $$
 
 Where $\beta$ ensures total energy matches the desired value.
