@@ -57,13 +57,13 @@ $$
 The script uses the **CuPy** library to offload computationally intensive tasks to the GPU, accelerating matrix operations. For instance:
 
 #### Acceleration Calculation
-The gravitational acceleration $$\mathbf{a}_i$$ for each particle is computed as:
+The gravitational acceleration $a_i$ for each particle is computed as:
 
-$$\mathbf{a}_i = -G \sum_{j \neq i} \frac{m_j (\mathbf{r}_j - \mathbf{r}_i)}{\left( |\mathbf{r}_j - \mathbf{r}_i|^2 + \epsilon^2 \right)^{3/2}}$$
+$$a_i = -G \sum_{j \neq i} \frac{m_j (r_j - r_i)}{\left( |r_j - r_i|^2 + \epsilon^2 \right)^{3/2}}$$
 
 Where:
 - $G$ is the gravitational constant,
-- $\mathbf{r}_i$ and $\mathbf{r}_j$ are positions of particles $i$ and $j$,
+- $r_i$ and $r_j$ are positions of particles $i$ and $j$,
 - $m_j$ is the mass of particle $j$,
 - $\epsilon$ is a softening parameter to avoid singularities.
 
@@ -87,7 +87,7 @@ Where:
 ### 4. **Scalable Storage**
 To handle large-scale simulations efficiently, the script uses **memory-mapped files** to store particle positions, velocities, and energies without loading all data into RAM. For example, the position data is saved as:
 
-$$\text{pos\_save}[i, :, t] = \mathbf{r}_i(t)$$
+$$ \text{pos\_save}[i, :, t] = \mathbf{r}_i(t) $$
 
 Where $\mathbf{r}_i(t)$ is the position of particle $i$ at time $t$.
 
